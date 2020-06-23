@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quickthink/db/sharedpref.dart';
 import 'package:quickthink/screens/home.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../bottom_navigation_bar.dart';
 import 'home.dart';
@@ -125,26 +125,5 @@ class _SplashPageState extends State<SplashPage> {
         ),
       ),
     );
-  }
-}
-
-class SharedPrefs {
-  SharedPreferences sharedPreferences;
-
-  /// Set Username
-  Future<void> setUsername(String username) async {
-    sharedPreferences = await SharedPreferences.getInstance();
-    final key = "username";
-    final storedValue = username;
-    sharedPreferences.setString(key, storedValue);
-  }
-
-//Get Username
-  Future<String> getUsername() async {
-    sharedPreferences = await SharedPreferences.getInstance();
-    final key = "username";
-    final userStored = sharedPreferences.getString(key) ?? '0';
-
-    return userStored;
   }
 }

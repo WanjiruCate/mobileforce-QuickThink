@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:quickthink/db/sharedpref.dart';
+import 'package:quickthink/screens/splashpage.dart';
 
 class ThirdOnBoardScreen extends StatelessWidget {
+  SharedPrefs sharedPrefs = SharedPrefs();
+  bool statusNew;
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -91,18 +94,25 @@ class ThirdOnBoardScreen extends StatelessWidget {
           height: 55,
           width: 150,
           child: RaisedButton(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-            color: Color(0xFF18C5D9),
-            child: Text(
-              'Next',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                  color: Colors.white),
-            ),
-            onPressed: () => {},
-          ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
+              color: Color(0xFF18C5D9),
+              child: Text(
+                'Next',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: Colors.white),
+              ),
+              onPressed: () async {
+                await sharedPrefs.setIsNewUSer(true);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SplashPage(),
+                  ),
+                );
+              }),
         ),
       ),
     );

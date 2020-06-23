@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quickthink/db/sharedpref.dart';
+import 'package:quickthink/screens/onboarding_screens/first_onboard_screen.dart';
 
+import 'screens/onboarding_screens/onboard_joined.dart';
 import 'screens/splashpage.dart';
 
 void main() {
@@ -7,6 +10,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  bool seen;
+  SharedPrefs sharedPrefs = SharedPrefs();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashPage(),
+      home: seen ? onBoardingScreensJoined() : SplashPage(),
     );
   }
 }

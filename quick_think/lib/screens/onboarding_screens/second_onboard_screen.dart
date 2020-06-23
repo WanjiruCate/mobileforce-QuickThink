@@ -101,8 +101,12 @@ class SecondOnBoardScreen extends StatelessWidget {
                   fontSize: 15,
                   color: Colors.white),
             ),
-            onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ThirdOnBoardScreen())),
+            onPressed: () => Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ThirdOnBoardScreen(),
+              ),
+            ),
           ),
         ),
       ),
