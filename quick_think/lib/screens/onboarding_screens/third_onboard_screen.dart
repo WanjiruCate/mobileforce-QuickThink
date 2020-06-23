@@ -4,7 +4,7 @@ import 'package:quickthink/screens/splashpage.dart';
 
 class ThirdOnBoardScreen extends StatelessWidget {
   SharedPrefs sharedPrefs = SharedPrefs();
-  bool statusNew;
+  bool statusNew = false;
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);

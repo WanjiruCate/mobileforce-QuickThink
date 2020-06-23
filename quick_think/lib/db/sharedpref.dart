@@ -21,10 +21,10 @@ class SharedPrefs {
   }
 
   /// Set Username
-  Future<void> setIsNewUSer(bool username) async {
+  Future<void> setIsNewUSer(bool isNew) async {
     sharedPreferences = await SharedPreferences.getInstance();
     final key = "new";
-    final storedValue = username;
+    final storedValue = isNew;
     sharedPreferences.setBool(key, storedValue);
   }
 
@@ -32,8 +32,8 @@ class SharedPrefs {
   Future<bool> getIsNewUser() async {
     sharedPreferences = await SharedPreferences.getInstance();
     final key = "new";
-    final userStored = sharedPreferences.getBool(key) ?? false;
+    final keyStored = sharedPreferences.getBool(key) ?? false;
 
-    return userStored;
+    return keyStored;
   }
 }
